@@ -21,13 +21,9 @@ import javax.wireless.messaging.TextMessage;
 public class MessageHandler implements MessageListener{
     MessageConnection messageConnection;
     boolean connectionSuccessful;
-    private ApplicationConfig applicationConfig;
 
     public MessageHandler() {
         try {
-            // Initialize the application configuration settings
-            this.applicationConfig = new ApplicationConfig();
-            
             // Register the message server
             this.messageConnection = (MessageConnection) Connector.open("sms://:5000");
             this.messageConnection.setMessageListener((MessageListener) this);
@@ -42,7 +38,7 @@ public class MessageHandler implements MessageListener{
         boolean processSuccess = false;
         boolean readSuccess = false;
 
-        ServerCommunicationHandler serverCommunicationHandler = new ServerCommunicationHandler(this.applicationConfig.getAppUrl());
+        ServerCommunicationHandler serverCommunicationHandler = new ServerCommunicationHandler(ApplicationConfig.appUrl);
 
         try {
             Message msg = (Message) conn.receive();
