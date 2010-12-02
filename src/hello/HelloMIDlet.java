@@ -5,6 +5,7 @@
 
 package hello;
 
+import com.ushahidi.smspush.util.ApplicationConfig;
 import com.ushahidi.smspush.util.MessageHandler;
 import javax.microedition.midlet.*;
 import javax.microedition.lcdui.*;
@@ -108,12 +109,13 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                 // write post-action user code here
             } else if (command == settingsCommand) {//GEN-LINE:|7-commandAction|3|25-preAction
                 // write pre-action user code here
+                getTextField().setString(ApplicationConfig.appUrl);
                 switchDisplayable(null, getSettingsFrom());//GEN-LINE:|7-commandAction|4|25-postAction
                 // write post-action user code here
             } else if (command == startCommand) {//GEN-LINE:|7-commandAction|5|36-preAction
                 // write pre-action user code here
                 messageHandler = new MessageHandler();
-                
+
                 getForm().removeCommand(getStartCommand());
                 getForm().addCommand(getStopCommand());
 //GEN-LINE:|7-commandAction|6|36-postAction
@@ -122,7 +124,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                 // write pre-action user code here
                 messageHandler.closeInstance();
                 messageHandler = null;
-                
+
                 getForm().removeCommand(getStopCommand());
                 getForm().addCommand(getStartCommand());
 //GEN-LINE:|7-commandAction|8|38-postAction
@@ -131,6 +133,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
         } else if (displayable == settingsFrom) {
             if (command == saveSettingsCommand) {//GEN-END:|7-commandAction|9|32-preAction
                 // write pre-action user code here
+                ApplicationConfig.saveApplicationConfig(getTextField().getString());
                 switchDisplayable(null, getForm());//GEN-LINE:|7-commandAction|10|32-postAction
                 // write post-action user code here
             } else if (command == settingsBackCommand) {//GEN-LINE:|7-commandAction|11|29-preAction

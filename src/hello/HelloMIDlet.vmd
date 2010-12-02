@@ -101,13 +101,13 @@
                             <Property name="displayable" typeID="Cjavax.microedition.lcdui.Displayable" value="R26"/>
                         </Component>
                     </Component>
-                    <Component componentID="36" typeID="C#CommandEventSource">
-                        <Property name="displayable" typeID="Cjavax.microedition.lcdui.Displayable" value="R14"/>
-                        <Property name="command" typeID="Cjavax.microedition.lcdui.Command" value="R35"/>
-                    </Component>
                     <Component componentID="38" typeID="C#CommandEventSource">
                         <Property name="displayable" typeID="Cjavax.microedition.lcdui.Displayable" value="R14"/>
                         <Property name="command" typeID="Cjavax.microedition.lcdui.Command" value="R37"/>
+                    </Component>
+                    <Component componentID="36" typeID="C#CommandEventSource">
+                        <Property name="displayable" typeID="Cjavax.microedition.lcdui.Displayable" value="R14"/>
+                        <Property name="command" typeID="Cjavax.microedition.lcdui.Command" value="R35"/>
                     </Component>
                 </Component>
                 <Component componentID="26" typeID="Cjavax.microedition.lcdui.Form">
